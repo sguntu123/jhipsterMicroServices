@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 3,
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "baseName": "notification",
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "entities": ["Notification"],
+    "jhipsterVersion": "8.8.0",
+    "jwtSecretKey": "YjgxYTJlODM2NzJjMWFmODhiNWQ1YTIwMGM2OWJhYmVkZWU2YzVmN2YyMTY1MDNiM2M4NTZhYjcwMjM0NmM1MDEyOWE3NzljY2ZlYjhkZDE4NjZkODM0ZmY5N2M4NTc2Y2ViZmI5NDRmM2M4OWQ2Mjc5MzFmMWVmYzUwYjdlZWI=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1738585617000,
+    "nativeLanguage": "en",
+    "packageName": "com.jhipster.demo.notification",
+    "prodDatabaseType": "mssql",
+    "serverPort": "8083",
+    "serviceDiscoveryType": "consul",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

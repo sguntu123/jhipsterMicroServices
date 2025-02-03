@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "gateway",
+    "applications": {
+      "invoice": {
+        "applicationIndex": 2,
+        "serverPort": "8082"
+      },
+      "notification": {
+        "applicationIndex": 3,
+        "serverPort": "8083"
+      },
+      "product": {
+        "applicationIndex": 1,
+        "serverPort": "8081"
+      }
+    },
+    "authenticationType": "jwt",
+    "baseName": "store",
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "clientFramework": "react",
+    "devServerPort": 9060,
+    "entities": ["Customer", "Product", "ProductCategory", "ProductOrder", "OrderItem", "Invoice", "Shipment", "Notification"],
+    "jhipsterVersion": "8.8.0",
+    "jwtSecretKey": "MDAwMDBjMzI3YmI2NTVkZTUwMTlmY2I2ZmU1ZDI5NjRmNjA5YmRmODM1ZGZlZWVkNTJhNTRjMWJkNmQ5ZTU3ODY1MWNlNzVhMDc1OGE0NzgwMTMxMWIzZGUwMTAzN2RhZGFlMTRmZGVmY2Y2MTQ4ZDAzNDgzNzU2NjJiMDkzOGI=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1738586037000,
+    "nativeLanguage": "en",
+    "packageName": "com.jhipster.demo.store",
+    "prodDatabaseType": "mssql",
+    "reactive": true,
+    "serverPort": 8080,
+    "serviceDiscoveryType": "consul",
+    "testFrameworks": ["cypress"]
+  }
+}

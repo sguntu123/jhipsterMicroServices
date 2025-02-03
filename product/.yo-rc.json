@@ -1,0 +1,22 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 1,
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "baseName": "product",
+    "buildTool": "maven",
+    "cacheProvider": "hazelcast",
+    "entities": ["Product", "ProductCategory", "ProductOrder", "OrderItem"],
+    "jhipsterVersion": "8.8.0",
+    "jwtSecretKey": "NGNlZTE0NDQxYWU2NGEwZTQ3N2ZjMTllNWNjYjZiZTMzZDc4ZTFlZGRmNDQwMmIzMzkzNmY1OWU5ODY2MDRlYWFkZWNhZTFlZDY5OWU1YWJmMjkwNzZiYTk5YTc5ZDI3ZWVlMGY5ODg4MTExZTBmZGI2NTIxYzk3YjRmZDlmZmM=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1738585797000,
+    "nativeLanguage": "en",
+    "packageName": "com.jhipster.demo.product",
+    "prodDatabaseType": "mssql",
+    "serverPort": "8081",
+    "serviceDiscoveryType": "consul",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
