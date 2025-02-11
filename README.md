@@ -14,9 +14,17 @@
 - go to localhost:8083
 - connect to mssql with port 1435, user: `sa`, password: `yourStrong(!)Password`
 
+connecting to MSSQL Server container through SSMS:
+
+- server: localhost,1435
+- authentication: SQL Server Authentication 
+- login: sa
+- password: yourStrong(!)Password
+
 troubleshooting:
 
 - if you run into prettier errors, go to the project that has issues, and run `npm run lint:fix`
+- if a build fails, try it again, builds are flaky sometimes
 - if you run into other errors, check java + nodejs versions, restart docker
 
 
