@@ -8,15 +8,17 @@
     "cacheProvider": "hazelcast",
     "entities": ["Product", "ProductCategory", "ProductOrder", "OrderItem"],
     "jhipsterVersion": "8.8.0",
-    "jwtSecretKey": "NGNlZTE0NDQxYWU2NGEwZTQ3N2ZjMTllNWNjYjZiZTMzZDc4ZTFlZGRmNDQwMmIzMzkzNmY1OWU5ODY2MDRlYWFkZWNhZTFlZDY5OWU1YWJmMjkwNzZiYTk5YTc5ZDI3ZWVlMGY5ODg4MTExZTBmZGI2NTIxYzk3YjRmZDlmZmM=",
+    "jwtSecretKey": "NWI2NWNmMTE5NDJiYjUwYzY2MGQ4ZmU4ZWI1NzVmZDI3YzBkMGU4MmNiOWJjZmFlMzQyOGYwNWE4Y2E0MmQzNmQyYzNlN2JlMTY1YThkYjQ1M2MxMGZjODI3NDNlNTBhOTdlY2QyNzAyZDZkNzZiNGE3M2NjMjJiNGY3YjdlOTQ=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1738585797000,
+    "lastLiquibaseTimestamp": 1739292106000,
+    "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.jhipster.demo.product",
     "prodDatabaseType": "mssql",
     "serverPort": "8081",
     "serviceDiscoveryType": "consul",
     "skipClient": true,
+    "skipCommitHook": true,
     "skipUserManagement": true
   }
 }

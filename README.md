@@ -11,6 +11,8 @@
 
 - build each micrsoservice with `./mvnw -ntp -Pprod verify jib:dockerBuild`
 - run `docker-compose up -d` to start all services
+- go to localhost:8083
+- connect to mssql with port 1435, user: `sa`, password: `yourStrong(!)Password`
 
 
 ## steps to create this repository
@@ -18,10 +20,11 @@
 - use https://start.jhipster.tech/jdl-studio/ to modify application jhipster-jdl.jdl
 - jhipster import-jdl jhipster-jdl.jdl
 - mkdir docker-compose and then `jhipster docker-compose`
+- modify docker-compose.yml to only use one mssql service, set port to 1435
 - change </jib-maven-plugin.version> to 3.3.2
 - acceptLicense() in MsSqlTestContainer.java
 - for each application run `./mvnw -ntp -Pprod verify jib:dockerBuild`
-- in docker-compose run `docker-compose run -d`
+- in docker-compose run `docker-compose up -d`
 
 
 

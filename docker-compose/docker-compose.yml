@@ -7,8 +7,8 @@ services:
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:sqlserver://invoice-mssql:1433;database=invoice;encrypt=false
-      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://invoice-mssql:1433;database=invoice;encrypt=false
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://database-mssql:1433;database=invoice;encrypt=false
+      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://database-mssql:1433;database=invoice;encrypt=false
     healthcheck:
       test:
         - CMD
@@ -19,24 +19,9 @@ services:
       timeout: 5s
       retries: 40
     depends_on:
-      invoice-mssql:
+      database-mssql:
         condition: service_healthy
-  invoice-mssql:
-    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_PID=Express
-      - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=invoice
-      - MSSQL_SLEEP=15
-    command: /bin/bash -c '/opt/mssql/bin/sqlservr & echo "wait $$MSSQL_SLEEP sec for DB to start "; sleep $$MSSQL_SLEEP; /opt/mssql-tools/bin/sqlcmd -U sa -P $$SA_PASSWORD -d tempdb -q "EXIT(CREATE DATABASE $$MSSQL_DATABASE)"; wait;'
-    healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$${SA_PASSWORD}" -Q "USE $${MSSQL_DATABASE}" -b -o /dev/null
-      interval: 10s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
-
+  
   notification:
     image: notification
     environment:
@@ -45,8 +30,8 @@ services:
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:sqlserver://notification-mssql:1433;database=notification;encrypt=false
-      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://notification-mssql:1433;database=notification;encrypt=false
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://database-mssql:1433;database=notification;encrypt=false
+      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://database-mssql:1433;database=notification;encrypt=false
     healthcheck:
       test:
         - CMD
@@ -57,23 +42,8 @@ services:
       timeout: 5s
       retries: 40
     depends_on:
-      notification-mssql:
+      database-mssql:
         condition: service_healthy
-  notification-mssql:
-    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_PID=Express
-      - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=notification
-      - MSSQL_SLEEP=15
-    command: /bin/bash -c '/opt/mssql/bin/sqlservr & echo "wait $$MSSQL_SLEEP sec for DB to start "; sleep $$MSSQL_SLEEP; /opt/mssql-tools/bin/sqlcmd -U sa -P $$SA_PASSWORD -d tempdb -q "EXIT(CREATE DATABASE $$MSSQL_DATABASE)"; wait;'
-    healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$${SA_PASSWORD}" -Q "USE $${MSSQL_DATABASE}" -b -o /dev/null
-      interval: 10s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
 
   product:
     image: product
@@ -83,8 +53,8 @@ services:
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:sqlserver://product-mssql:1433;database=product;encrypt=false
-      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://product-mssql:1433;database=product;encrypt=false
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://database-mssql:1433;database=product;encrypt=false
+      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://database-mssql:1433;database=product;encrypt=false
     healthcheck:
       test:
         - CMD
@@ -95,23 +65,8 @@ services:
       timeout: 5s
       retries: 40
     depends_on:
-      product-mssql:
+      database-mssql:
         condition: service_healthy
-  product-mssql:
-    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_PID=Express
-      - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=product
-      - MSSQL_SLEEP=15
-    command: /bin/bash -c '/opt/mssql/bin/sqlservr & echo "wait $$MSSQL_SLEEP sec for DB to start "; sleep $$MSSQL_SLEEP; /opt/mssql-tools/bin/sqlcmd -U sa -P $$SA_PASSWORD -d tempdb -q "EXIT(CREATE DATABASE $$MSSQL_DATABASE)"; wait;'
-    healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$${SA_PASSWORD}" -Q "USE $${MSSQL_DATABASE}" -b -o /dev/null
-      interval: 10s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
 
   store:
     image: store
@@ -121,8 +76,8 @@ services:
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_R2DBC_URL=r2dbc:mssql://store-mssql:1433/store
-      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://store-mssql:1433;database=store;encrypt=false
+      - SPRING_R2DBC_URL=r2dbc:mssql://database-mssql:1433/store
+      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://database-mssql:1433;database=store;encrypt=false
     ports:
       - 8083:8080
     healthcheck:
@@ -135,23 +90,28 @@ services:
       timeout: 5s
       retries: 40
     depends_on:
-      store-mssql:
+      database-mssql:
         condition: service_healthy
-  store-mssql:
+
+  database-mssql:
     image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
       - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=store
+      - MSSQL_DATABASE=master
+      - MSSQL_USER=sa
+      - MSSQL_PASSWORD=yourStrong(!)Password
       - MSSQL_SLEEP=15
-    command: /bin/bash -c '/opt/mssql/bin/sqlservr & echo "wait $$MSSQL_SLEEP sec for DB to start "; sleep $$MSSQL_SLEEP; /opt/mssql-tools/bin/sqlcmd -U sa -P $$SA_PASSWORD -d tempdb -q "EXIT(CREATE DATABASE $$MSSQL_DATABASE)"; wait;'
+    command: /bin/bash -c '/opt/mssql/bin/sqlservr & echo "wait $$MSSQL_SLEEP sec for DB to start "; sleep $$MSSQL_SLEEP; /opt/mssql-tools/bin/sqlcmd -U $$MSSQL_USER -P $$MSSQL_PASSWORD -d tempdb -q "CREATE DATABASE invoice; CREATE DATABASE notification; CREATE DATABASE product; CREATE DATABASE store;"; wait;'
     healthcheck:
       test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$${SA_PASSWORD}" -Q "USE $${MSSQL_DATABASE}" -b -o /dev/null
       interval: 10s
       timeout: 3s
       retries: 10
       start_period: 10s
+    ports:
+      - 1435:1433
 
   consul:
     image: docker.io/bitnami/consul:1.20.1

@@ -15,7 +15,7 @@ describe('Shipment e2e test', () => {
   const shipmentPageUrlPattern = new RegExp('/shipment(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const shipmentSample = { date: '2025-02-03T04:04:14.195Z' };
+  const shipmentSample = { date: '2025-02-11T08:16:03.195Z' };
 
   let shipment;
   let invoice;
@@ -31,11 +31,11 @@ describe('Shipment e2e test', () => {
       url: '/services/invoice/api/invoices',
       body: {
         code: 'cram sham',
-        date: '2025-02-03T09:30:52.190Z',
+        date: '2025-02-11T13:42:41.190Z',
         details: 'unfortunate',
         status: 'CANCELLED',
         paymentMethod: 'PAYPAL',
-        paymentDate: '2025-02-02T15:18:57.840Z',
+        paymentDate: '2025-02-10T19:30:46.840Z',
         paymentAmount: 26377.94,
       },
     }).then(({ body }) => {
@@ -207,9 +207,9 @@ describe('Shipment e2e test', () => {
       cy.get(`[data-cy="trackingCode"]`).type('woefully hence furthermore');
       cy.get(`[data-cy="trackingCode"]`).should('have.value', 'woefully hence furthermore');
 
-      cy.get(`[data-cy="date"]`).type('2025-02-03T01:13');
+      cy.get(`[data-cy="date"]`).type('2025-02-11T05:25');
       cy.get(`[data-cy="date"]`).blur();
-      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-03T01:13');
+      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-11T05:25');
 
       cy.get(`[data-cy="details"]`).type('innocently instead strategy');
       cy.get(`[data-cy="details"]`).should('have.value', 'innocently instead strategy');

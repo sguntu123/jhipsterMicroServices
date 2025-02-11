@@ -7,15 +7,17 @@
     "buildTool": "maven",
     "entities": ["Invoice", "Shipment"],
     "jhipsterVersion": "8.8.0",
-    "jwtSecretKey": "MGU0Yzc3YWVmZGM0YWIyZDk4MmQ4NWI0N2I1YTAzZTM1ZGFkMjZiN2ZiNjJmMzU0YTFhMjRjNmUxZWQxNGIxNWQ1Y2M0NTAzYzBlNTVkNDcyZThkOWM0YThjYTQyOGRjMDI5MTExMmE5MTQxNmMwZmFiOGVhYjRlNGU5ODhkNTQ=",
+    "jwtSecretKey": "NzliYjkzYjIzZDA2OWE5NGEyYWYwY2M5N2UxM2QzMTExN2IxZDQxZDYzYjhlZDc4YzA4MDFhYjE3MWM1MzcwN2I1N2QwNDg1ODBhYTdlZjllNWViYWExYmY2ZDk2ODc4YmVkYjA3Y2NjMDcyM2YwODIyODQ2ZGE3OTNmMTRhZjE=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1738585677000,
+    "lastLiquibaseTimestamp": 1739291986000,
+    "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.jhipster.demo.invoice",
     "prodDatabaseType": "mssql",
     "serverPort": "8082",
     "serviceDiscoveryType": "consul",
     "skipClient": true,
+    "skipCommitHook": true,
     "skipUserManagement": true
   }
 }

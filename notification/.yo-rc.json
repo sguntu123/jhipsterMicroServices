@@ -9,15 +9,17 @@
     "enableHibernateCache": false,
     "entities": ["Notification"],
     "jhipsterVersion": "8.8.0",
-    "jwtSecretKey": "YjgxYTJlODM2NzJjMWFmODhiNWQ1YTIwMGM2OWJhYmVkZWU2YzVmN2YyMTY1MDNiM2M4NTZhYjcwMjM0NmM1MDEyOWE3NzljY2ZlYjhkZDE4NjZkODM0ZmY5N2M4NTc2Y2ViZmI5NDRmM2M4OWQ2Mjc5MzFmMWVmYzUwYjdlZWI=",
+    "jwtSecretKey": "MTljYmJiMmJkZjZmZTk2YzlmZTQ5NmRjZDIwNDdjMmU2NTRjZDNkMDVlZTVmODI0MmJjMWJjMzE5YmZhNGI5NDY2MjNhOTgzNDEzMzI1ZjdmMmY3YzA5YmQ4NzU2ZDljNTllNDZiM2ZmNjAzYmI4NjNiMWRhYzZhMDgwNmFmMzM=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1738585617000,
+    "lastLiquibaseTimestamp": 1739291926000,
+    "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.jhipster.demo.notification",
     "prodDatabaseType": "mssql",
     "serverPort": "8083",
     "serviceDiscoveryType": "consul",
     "skipClient": true,
+    "skipCommitHook": true,
     "skipUserManagement": true
   }
 }

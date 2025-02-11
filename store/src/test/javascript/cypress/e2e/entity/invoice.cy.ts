@@ -17,10 +17,10 @@ describe('Invoice e2e test', () => {
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const invoiceSample = {
     code: 'verbally although',
-    date: '2025-02-02T21:42:29.201Z',
+    date: '2025-02-11T01:54:18.201Z',
     status: 'PAID',
     paymentMethod: 'CASH_ON_DELIVERY',
-    paymentDate: '2025-02-03T10:36:54.707Z',
+    paymentDate: '2025-02-11T14:48:43.707Z',
     paymentAmount: 6147.24,
   };
 
@@ -172,9 +172,9 @@ describe('Invoice e2e test', () => {
       cy.get(`[data-cy="code"]`).type('shrill');
       cy.get(`[data-cy="code"]`).should('have.value', 'shrill');
 
-      cy.get(`[data-cy="date"]`).type('2025-02-03T00:01');
+      cy.get(`[data-cy="date"]`).type('2025-02-11T04:12');
       cy.get(`[data-cy="date"]`).blur();
-      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-03T00:01');
+      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-11T04:12');
 
       cy.get(`[data-cy="details"]`).type('ugly futon notwithstanding');
       cy.get(`[data-cy="details"]`).should('have.value', 'ugly futon notwithstanding');
@@ -183,9 +183,9 @@ describe('Invoice e2e test', () => {
 
       cy.get(`[data-cy="paymentMethod"]`).select('PAYPAL');
 
-      cy.get(`[data-cy="paymentDate"]`).type('2025-02-03T04:44');
+      cy.get(`[data-cy="paymentDate"]`).type('2025-02-11T08:56');
       cy.get(`[data-cy="paymentDate"]`).blur();
-      cy.get(`[data-cy="paymentDate"]`).should('have.value', '2025-02-03T04:44');
+      cy.get(`[data-cy="paymentDate"]`).should('have.value', '2025-02-11T08:56');
 
       cy.get(`[data-cy="paymentAmount"]`).type('10578.81');
       cy.get(`[data-cy="paymentAmount"]`).should('have.value', '10578.81');

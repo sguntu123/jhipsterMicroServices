@@ -190,14 +190,4 @@ public class NotificationResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
-
-    /**
-     * {@code GET  /hello} : returns hello world
-     *
-     * @return the Hello World with status {@code 200 (OK)}.
-     */
-    @GetMapping("/hello")
-    public ResponseEntity<String> helloWorld() {
-        return ResponseEntity.ok("Hello, World!");
-    }
 }

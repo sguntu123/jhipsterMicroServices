@@ -45,7 +45,7 @@ describe('OrderItem e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/services/product/api/product-orders',
-      body: { placedDate: '2025-02-02T19:06:49.620Z', status: 'COMPLETED', code: 'gosh', invoiceId: 14899, customer: 'provided past aw' },
+      body: { placedDate: '2025-02-10T23:18:38.620Z', status: 'COMPLETED', code: 'gosh', invoiceId: 14899, customer: 'provided past aw' },
     }).then(({ body }) => {
       productOrder = body;
     });

@@ -7,31 +7,45 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity ProductOrder.
+        Added the entity Customer.
     -->
-    <changeSet id="20250203122857-1" author="jhipster">
-        <createTable tableName="product_order">
-            <column name="id" type="bigint">
+    <changeSet id="20250211163846-1" author="jhipster">
+        <createTable tableName="customer">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="placed_date" type="${datetimeType}">
+            <column name="first_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="status" type="varchar(255)">
+            <column name="last_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="code" type="varchar(255)">
+            <column name="gender" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="invoice_id" type="bigint">
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="address_line_1" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="address_line_2" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="customer" type="varchar(255)">
+            <column name="city" type="varchar(255)">
                 <constraints nullable="false" />
+            </column>
+            <column name="country" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_customer__user_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
-        <dropDefaultValue tableName="product_order" columnName="placed_date" columnDataType="${datetimeType}"/>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
@@ -44,18 +58,23 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20250203122857-1-data" author="jhipster" context="faker">
+    <changeSet id="20250211163846-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/product_order.csv"
+                  file="config/liquibase/fake-data/customer.csv"
                   separator=";"
-                  tableName="product_order"
+                  tableName="customer"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="placed_date" type="date"/>
-            <column name="status" type="string"/>
-            <column name="code" type="string"/>
-            <column name="invoice_id" type="numeric"/>
-            <column name="customer" type="string"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="gender" type="string"/>
+            <column name="email" type="string"/>
+            <column name="phone" type="string"/>
+            <column name="address_line_1" type="string"/>
+            <column name="address_line_2" type="string"/>
+            <column name="city" type="string"/>
+            <column name="country" type="string"/>
+            <column name="user_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

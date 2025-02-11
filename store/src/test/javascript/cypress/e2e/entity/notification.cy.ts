@@ -16,8 +16,8 @@ describe('Notification e2e test', () => {
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const notificationSample = {
-    date: '2025-02-03T07:19:54.272Z',
-    sentDate: '2025-02-03T04:39:22.479Z',
+    date: '2025-02-11T11:31:43.272Z',
+    sentDate: '2025-02-11T08:51:11.479Z',
     format: 'PARCEL',
     userId: 10359,
     productId: 20617,
@@ -165,16 +165,16 @@ describe('Notification e2e test', () => {
     });
 
     it('should create an instance of Notification', () => {
-      cy.get(`[data-cy="date"]`).type('2025-02-03T06:51');
+      cy.get(`[data-cy="date"]`).type('2025-02-11T11:02');
       cy.get(`[data-cy="date"]`).blur();
-      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-03T06:51');
+      cy.get(`[data-cy="date"]`).should('have.value', '2025-02-11T11:02');
 
       cy.get(`[data-cy="details"]`).type('monthly midst');
       cy.get(`[data-cy="details"]`).should('have.value', 'monthly midst');
 
-      cy.get(`[data-cy="sentDate"]`).type('2025-02-03T11:37');
+      cy.get(`[data-cy="sentDate"]`).type('2025-02-11T15:49');
       cy.get(`[data-cy="sentDate"]`).blur();
-      cy.get(`[data-cy="sentDate"]`).should('have.value', '2025-02-03T11:37');
+      cy.get(`[data-cy="sentDate"]`).should('have.value', '2025-02-11T15:49');
 
       cy.get(`[data-cy="format"]`).select('SMS');
 

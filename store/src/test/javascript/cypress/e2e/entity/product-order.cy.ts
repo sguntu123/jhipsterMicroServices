@@ -15,7 +15,7 @@ describe('ProductOrder e2e test', () => {
   const productOrderPageUrlPattern = new RegExp('/product-order(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productOrderSample = { placedDate: '2025-02-02T20:23:55.448Z', status: 'PENDING', code: 'because gee', customer: 'how' };
+  const productOrderSample = { placedDate: '2025-02-11T00:35:44.448Z', status: 'PENDING', code: 'because gee', customer: 'how' };
 
   let productOrder;
 
@@ -162,9 +162,9 @@ describe('ProductOrder e2e test', () => {
     });
 
     it('should create an instance of ProductOrder', () => {
-      cy.get(`[data-cy="placedDate"]`).type('2025-02-02T15:09');
+      cy.get(`[data-cy="placedDate"]`).type('2025-02-10T19:20');
       cy.get(`[data-cy="placedDate"]`).blur();
-      cy.get(`[data-cy="placedDate"]`).should('have.value', '2025-02-02T15:09');
+      cy.get(`[data-cy="placedDate"]`).should('have.value', '2025-02-10T19:20');
 
       cy.get(`[data-cy="status"]`).select('PENDING');
 
