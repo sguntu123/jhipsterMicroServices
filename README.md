@@ -14,6 +14,11 @@
 - go to localhost:8083
 - connect to mssql with port 1435, user: `sa`, password: `yourStrong(!)Password`
 
+troubleshooting:
+
+- if you run into prettier errors, go to the project that has issues, and run `npm run lint:fix`
+- if you run into other errors, check java + nodejs versions, restart docker
+
 
 ## steps to create this repository
 
